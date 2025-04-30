@@ -1,0 +1,31 @@
+CREATE TABLE Employee (
+  employee_id INT PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  department VARCHAR(50),
+  salary INT,
+  hire_date DATE,
+  position VARCHAR(50)
+);
+
+-- Insert Data
+INSERT INTO Employee VALUES
+(1, 'John', 'Doe', 'IT', 60000, '2021-05-15', 'Software Engineer'),
+(2, 'Jane', 'Smith', 'HR', 55000, '2020-03-10', 'HR Specialist'),
+(3, 'Alex', 'Johnson', 'IT', 70000, '2019-09-22', 'DevOps Engg'),
+(4, 'Emily', 'Davis', 'Finance', 80000, '2021-02-18', 'Analyst'),
+(5, 'David', 'Duck', 'IT', 40000, '2020-06-05', 'Software Engineer'),
+(6, 'Don', 'Dev', 'Finance', 90000, '2019-08-03', 'Developer');
+
+Task	SQL Command
+1. Select all data	SELECT * FROM Employee;
+2. Employees in IT dept	SELECT * FROM Employee WHERE department = 'IT';
+3. Count employees in each department	SELECT department, COUNT(*) FROM Employee GROUP BY department;
+4. Avg salary per department	SELECT department, AVG(salary) FROM Employee GROUP BY department;
+5. Employees hired after 1 Feb 2021	SELECT * FROM Employee WHERE hire_date > '2021-02-01';
+6. Increase IT salary by ₹5000	UPDATE Employee SET salary = salary + 5000 WHERE department = 'IT';
+7. Highest salary in each department	SELECT department, MAX(salary) FROM Employee GROUP BY department;
+8. Departments with more than 1 employee	SELECT department, COUNT(*) FROM Employee GROUP BY department HAVING COUNT(*) > 1;
+9. Employee with highest/lowest salary	SELECT * FROM Employee ORDER BY salary DESC LIMIT 1;
+SELECT * FROM Employee ORDER BY salary ASC LIMIT 1;
+10. Delete employee with last name = 'Dev'	DELETE FROM Employee WHERE last_name = 'Dev';

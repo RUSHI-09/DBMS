@@ -1,0 +1,29 @@
+CREATE TABLE Student (
+  student_id INT PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  age INT,
+  grade CHAR(1),
+  major VARCHAR(50)
+);
+
+-- Insert sample data
+INSERT INTO Student VALUES
+(1, 'John', 'Doe', 20, 'A', 'Computer Science'),
+(2, 'Jane', 'Smith', 21, 'B', 'Mathematics'),
+(3, 'Alex', 'Johnson', 22, 'A', 'Physics'),
+(4, 'Emily', 'Davis', 23, 'C', 'Biology'),
+(5, 'David', 'Duck', 21, 'B', 'Mathematics'),
+(6, 'Don', 'Dev', 22, 'A', 'Mathematics');
+
+ 1. Display table	SELECT * FROM Student;
+2. Change Jane to Jenne	UPDATE Student SET first_name = 'Jenne' WHERE first_name = 'Jane';
+3. Students with grade A	SELECT * FROM Student WHERE grade = 'A';
+4. Count students in each major	SELECT major, COUNT(*) FROM Student GROUP BY major;
+5. Order by age ascending	SELECT * FROM Student ORDER BY age ASC;
+6. Oldest & youngest student	SELECT * FROM Student ORDER BY age DESC LIMIT 1;
+SELECT * FROM Student ORDER BY age ASC LIMIT 1;
+7. Update major of student_id = 2	UPDATE Student SET major = 'Physics' WHERE student_id = 2;
+8. Delete student with ID = 6	DELETE FROM Student WHERE student_id = 6;
+9. Count students per major where grade = 'A'	SELECT major, COUNT(*) FROM Student WHERE grade = 'A' GROUP BY major;
+10. Count students in each grade having more than 2	SELECT grade, COUNT(*) FROM Student GROUP BY grade HAVING COUNT(*) > 2;
